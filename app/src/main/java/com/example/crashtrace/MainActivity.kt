@@ -1,6 +1,7 @@
 package com.example.crashtrace
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,10 +16,12 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
 
-        setContentView(R.layout.activity_main)
         CrashTrace.init(applicationContext)
+        setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.crashButton).setOnClickListener {
+
+        findViewById<Button>(R.id.testButton).setOnClickListener {
+            Log.d("CrashTrace","Button Pressed")
             throw RuntimeException("Test Crash")
         }
 
