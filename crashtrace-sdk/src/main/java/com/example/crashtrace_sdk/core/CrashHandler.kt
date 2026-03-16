@@ -20,6 +20,10 @@ object CrashHandler: Thread.UncaughtExceptionHandler {
 
         val report = CrashReportBuilder.report(throwable)
 
+        val jsonRep = CrashReportSerializer.tojson(report)
+        Log.e(TAG,"---Crash JSON---")
+        Log.e(TAG,jsonRep.toString(2))
+
         Log.e(TAG, "------ Crash Report ------")
 
         Log.e(TAG, "Session: ${report.sessionId}")
