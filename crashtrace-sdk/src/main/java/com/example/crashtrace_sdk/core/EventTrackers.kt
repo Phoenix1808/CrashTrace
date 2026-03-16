@@ -7,11 +7,13 @@ object EventTrackers {
     private const val TAG = "CrashTrace"
 
     fun track(event:String,screen:String, element: String?= null){
-        if(element != null){
-            Log.d(TAG,"Event: $event | Screen: $screen | Element: $element")
+        val log = if(element != null){
+            "Event: $event | Screen: $screen | Element: $element"
         } else{
-            Log.d(TAG,"Event: $event | Screen: $screen")
+            "Event: $event | Screen: $screen"
         }
+        Log.d(TAG,log)
 
+        EventBuffer.addEv(log) //connected eventBuffer with eventTracker
     }
 }

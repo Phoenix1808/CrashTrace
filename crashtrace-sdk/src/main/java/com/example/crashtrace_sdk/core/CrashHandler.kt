@@ -21,9 +21,14 @@ object CrashHandler: Thread.UncaughtExceptionHandler {
         Log.e(TAG,"Crash Msg: ${throwable.message}")
         Log.e(TAG,"Session: ${SessionManager.getSessionId()}")
 
-        try {
-            Thread.sleep(200)   // allow logs to flush
-        } catch (e: Exception) {}
+//        try {
+//            Thread.sleep(200)   // allow logs to flush
+//        } catch (e: Exception) {}
+
+        Log.e(TAG,"..User Events Timeline..")
+        EventBuffer.getEv().forEach {
+            Log.e(TAG,it)
+        }
 
         defHandler?.uncaughtException(thread,throwable)
     }
