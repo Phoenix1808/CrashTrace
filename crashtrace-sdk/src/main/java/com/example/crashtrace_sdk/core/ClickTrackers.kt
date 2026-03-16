@@ -17,8 +17,9 @@ object ClickTrackers {
         traverseViews(root,activity)
     }
 
+    //we did NO_ID bcoz many internal android views have no ID
     private fun traverseViews(view:View,activity: Activity){
-        if(view is Button){
+        if(view.isClickable && view.id != View.NO_ID){     //tracks any clickable view interaction
             val orgListener = ReflectionUtils.getExistingClickListener(view)
 
             view.setOnClickListener {

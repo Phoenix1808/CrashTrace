@@ -16,20 +16,21 @@ object CrashHandler: Thread.UncaughtExceptionHandler {
         Thread.setDefaultUncaughtExceptionHandler(this)
     }
 
-    override fun uncaughtException(thread:Thread,throwable:Throwable){
-        Log.e(TAG,"App Crash Detected !")
-        Log.e(TAG,"Crash Msg: ${throwable.message}")
-        Log.e(TAG,"Session: ${SessionManager.getSessionId()}")
+    override fun uncaughtException(thread: Thread, throwable: Throwable) {
 
-//        try {
-//            Thread.sleep(200)   // allow logs to flush
-//        } catch (e: Exception) {}
+        val report = CrashReportBuilder.report(throwable)
 
-        Log.e(TAG,"..User Events Timeline..")
-        EventBuffer.getEv().forEach {
-            Log.e(TAG,it)
+        Log.e(TAG, "------ Crash Report ------")
+
+        Log.e(TAG, "Session: ${report.sessionId}")
+        Log.e(TAG, "Crash Message: ${report.crashMessage}")
+        Log.e(TAG, "Timestamp: ${report.timestamp}")
+
+        Log.e(TAG, "--- User Events Timeline ---")
+
+        report.timeline.forEach {
+            Log.e(TAG, it)
         }
 
-        defHandler?.uncaughtException(thread,throwable)
-    }
-}
+        defHandler?.uncaughtException(thread, throwable)
+    }}

@@ -2,6 +2,11 @@ package com.example.crashtrace_sdk.core
 
 import android.view.View
 
+//purpose of reflectionUtils is to access android private fields
+//View.ListenerInfo.mOnClickListener
+//android never expose exisiting listener publicly hence we used reflection to extract it
+//reflection refers to access object internals dynamically at runtime
+//we needed it bcoz SDK can't see exisiting click listeners
 object ReflectionUtils {
 
     fun getExistingClickListener(view: View): View.OnClickListener? {
