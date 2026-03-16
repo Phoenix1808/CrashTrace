@@ -19,8 +19,8 @@ object ClickTrackers {
 
     private fun traverseViews(view:View,activity: Activity){
         if(view is Button){
-//            val orgListener = view.hasOnClickListeners()
-            if(!view.hasOnClickListeners()){
+            val orgListener = ReflectionUtils.getExistingClickListener(view)
+
             view.setOnClickListener {
                 //exception handling
                 val btnName = try {
@@ -34,9 +34,10 @@ object ClickTrackers {
                     screen = activity.javaClass.simpleName, //gets activity class name
                     element = btnName
                 )
-            }
+                orgListener?.onClick(view)
             }
         }
+
         if(view is ViewGroup){
             for(i in 0 until view.childCount){
                 traverseViews(view.getChildAt(i),activity)
