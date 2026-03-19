@@ -132,7 +132,7 @@ Many applications already attach their own click listeners to views.
 
 CrashTrace uses **reflection** to retrieve the existing listener and wrap it without breaking existing behavior.
 
-Execution flow:
+Execution flow::
 
 ```
 User Click
