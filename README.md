@@ -4,7 +4,7 @@
 CrashTrace is a lightweight Android crash analytics SDK designed to capture application crashes along with a **timeline of user interactions leading up to the crash**.
 Traditional crash reporters typically provide only stack traces and device information. While useful, this information often lacks context about **what the user actually did before the crash happened**.
 CrashTrace solves this problem by automatically tracking user interactions and screen navigation throughout the session and attaching that timeline to the crash report.
-This allows developers to reconstruct the user journey that led to the crash and significantly reduce debugging time.
+This allows developers to reconstruct the user journey that led to the crash and significantly reduce debugging time. 
 
 ---
 
