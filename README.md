@@ -6,6 +6,7 @@ Traditional crash reporters typically provide only stack traces and device infor
 CrashTrace solves this problem by automatically tracking user interactions and screen navigation throughout the session and attaching that timeline to the crash report.
 This allows developers to reconstruct the user journey that led to the crash and significantly reduce debugging time. 
 
+This SDK is available on https://jitpack.io/ search for Phoenix1808/CrashTrace and then click get it. And ALL SET !!
 ---
 
 # 🎯 Project Goal
