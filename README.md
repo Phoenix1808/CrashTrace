@@ -7,6 +7,8 @@ CrashTrace solves this problem by automatically tracking user interactions and s
 This allows developers to reconstruct the user journey that led to the crash and significantly reduce debugging time. 
 
 This SDK is available on https://jitpack.io/ search for Phoenix1808/CrashTrace and then click get it. And ALL SET !!
+
+https://jitpack.io/v/Phoenix1808/CrashTrace.svg
 ---
 
 # 🎯 Project Goal
